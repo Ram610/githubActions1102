@@ -1,0 +1,20 @@
+name: Call Another Repository
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  clone-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout current repository
+        uses: checkout/actions@v3
+      - name: checkout another repository
+        uses: checkout/actions@v3
+        with:
+          repository: Ram610/githubActions
+          token: ${{secrets.GITHUB_TOKEN}}
+      - name: Run script from another repository
+        run: |
+          ./testNew.js
