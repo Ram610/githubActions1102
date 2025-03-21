@@ -17,4 +17,9 @@ jobs:
           token: ${{secrets.PAT}}
       - name: Run script from another repository
         run: |
-          ./testNew.js
+          echo "debug permissions: $GITHUB_REPOSITORY"
+          echo "Actor : $GITHUB_ACTOR"
+          echo "Token permissions"
+          curl -H "Authorization: token ${{ secrets.PAT }}" https://api.github.com/repos/Ram610/githubActions
+          node ./testNew.js
+        
