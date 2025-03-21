@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "debug permissions: $GITHUB_REPOSITORY"
           echo "Actor : $GITHUB_ACTOR"
-          echo "Token permissions"
+          echo "Token permissions- 1"
           curl -H "Authorization: token ${{ secrets.PAT }}" https://api.github.com/repos/Ram610/githubActions
           node ./testNew.js
         
